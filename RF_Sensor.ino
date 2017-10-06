@@ -19,6 +19,7 @@ const uint64_t pipes[2] = { 0xF0F0F0F0E1LL, 0xF0F0F0F0D2LL };
 //const char* role_friendly_name[] = { "invalid", "Ping out", "Pong back"};
 //role_e role = role_pong_back;
 
+//Read value from current sensor
 double getSwitchCurrent() {
   RawValue = analogRead(analogIn);
   Voltage = (RawValue / 1024.0)*5000;
@@ -46,7 +47,6 @@ void setup() {
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
   if (radio.available()){
     Serial.println("Got Something");
     unsigned long query;
