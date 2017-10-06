@@ -8,11 +8,9 @@ RF24 radio(9,10);
 const uint64_t pipes[2] = { 0xF0F0F0F0E1LL, 0xF0F0F0F0D2LL };
 
 void setup() {
-  // put your setup code here, to run once:
   Serial.begin(57600);
   Serial.println("Serial Open");
   printf_begin();
-  //printf("\n\rRF24/examples/GettingStarted/\n\r");
 
   radio.begin();
   radio.setRetries(15,15);
@@ -28,7 +26,7 @@ void setup() {
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  // Simply forward messages received by Pi via serial connection
   if (Serial.available()){
     int Q = Serial.read();
     RF_Request(Q);
